@@ -1,5 +1,5 @@
 
-SUPER_ADMIN_ID = None
+SUPER_ADMIN_ID = 7062038221
 
 
 import os
@@ -18,7 +18,7 @@ FILE_LOCK = threading.Lock()
 DB_LOCK = threading.Lock()
 
 DEFAULT_CONFIG = {
-    "bot_token": "",
+    "bot_token": "6690027697:AAHZtlo0cTqzRtu7ldVWEMBdjU7GXOzUf2s",
     "admins": [], 
     "required_channels": [],
     "last_update_id": None
