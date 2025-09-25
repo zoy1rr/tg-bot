@@ -1,7 +1,4 @@
 
-SUPER_ADMIN_ID = None
-
-
 import os
 import json
 import time
@@ -11,15 +8,27 @@ import traceback
 import sqlite3
 from datetime import datetime, timedelta
 from urllib import request, parse, error
+from dotenv import load_dotenv
 
+# === .env yuklash ===
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+SUPER_ADMIN_ID = int(os.getenv("SUPER_ADMIN_ID", "0"))
+
+if not BOT_TOKEN or BOT_TOKEN.startswith("PUT_YOUR"):
+    print("Error: Please set BOT_TOKEN in .env file with your bot token.")
+    exit(1)
+
+# === Fayllar va papkalar ===
 DATA_DIR = "database"
 DB_PATH = os.path.join(DATA_DIR, "database.db")
-FILE_LOCK = threading.Lock()  
+FILE_LOCK = threading.Lock()
 DB_LOCK = threading.Lock()
 
+# === Default config ===
 DEFAULT_CONFIG = {
-    "bot_token": "",
-    "admins": [], 
+    "bot_token": BOT_TOKEN,
+    "admins": [SUPER_ADMIN_ID] if SUPER_ADMIN_ID else [],
     "required_channels": [],
     "last_update_id": None
 }
