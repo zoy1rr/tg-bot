@@ -1,18 +1,17 @@
 # Python
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
 *.pyd
-*.db
-*.sqlite3
-*.egg-info/
-venv/
 
-# OS
+# Virtual env
+venv/
+env/
+.venv/
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# Env
+# Env fayl
 .env
-.env.local
-.env.*.local
